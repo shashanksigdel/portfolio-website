@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <rect width="800" height="500" fill="#0a0a0a"/>
+  <rect x="40" y="40" width="720" height="420" fill="#d4ff00" stroke="#0a0a0a" stroke-width="4"/>
+  <text x="60" y="130" font-family="system-ui,sans-serif" font-size="72" font-weight="900" fill="#0a0a0a" letter-spacing="-2">OzSathi</text>
+  <text x="60" y="190" font-family="monospace" font-size="22" fill="#0a0a0a" opacity="0.7">COMMUNITY MARKETPLACE</text>
+  <rect x="60" y="230" width="180" height="36" fill="#ff2d55"/>
+  <text x="75" y="254" font-family="monospace" font-size="14" font-weight="700" fill="#fff">NEPALI AUSTRALIA</text>
+  <rect x="260" y="230" width="120" height="36" fill="#0a0a0a"/>
+  <text x="275" y="254" font-family="monospace" font-size="14" font-weight="700" fill="#d4ff00">WEB + iOS</text>
+  <text x="60" y="340" font-family="monospace" font-size="16" fill="#0a0a0a">ozsathi.com</text>
+  <circle cx="700" cy="380" r="60" fill="#ff2d55" stroke="#0a0a0a" stroke-width="3"/>
+  <text x="700" y="388" text-anchor="middle" font-family="monospace" font-size="14" font-weight="700" fill="#fff">LIVE</text>
+</svg>

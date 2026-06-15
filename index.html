@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Shashank Sigdel, Software Developer based in Melbourne."
+    />
+    <title>Shashank Sigdel</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f0ebe0'/><text x='50' y='68' font-size='46' font-family='Georgia' font-weight='bold' text-anchor='middle' fill='%23111'>SS</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Permanent+Marker&family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="zine-riso zine-scatter zine-tangled">
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- Xerox / Riso overlays -->
+  <div class="paper-texture" aria-hidden="true"></div>
+  <div class="halftone" aria-hidden="true"></div>
+  <div class="riso-layer riso-layer--pink" id="riso-pink" aria-hidden="true"></div>
+  <div class="riso-layer riso-layer--blue" id="riso-blue" aria-hidden="true"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <span class="cursor__dot"></span>
+    <span class="cursor__ring"></span>
+    <span class="cursor__label">READ</span>
+  </div>
+
+  <!-- Fixed UI chrome -->
+  <header class="chrome">
+    <div class="chrome__left">
+      <a href="#hero" class="chrome__logo" data-magnetic aria-label="Shashank Sigdel, home">
+        <span class="chrome__logo-name">Shashank Sigdel</span>
+      </a>
+    </div>
+    <nav class="chrome__nav" aria-label="Primary">
+      <a href="#about" class="chrome__link" data-nav="about" data-magnetic>About</a>
+      <a href="#skills" class="chrome__link" data-nav="skills" data-magnetic>Skills</a>
+      <a href="#work" class="chrome__link" data-nav="work" data-magnetic>Work</a>
+      <a href="#services" class="chrome__link" data-nav="services" data-magnetic>Services</a>
+      <a href="#blog" class="chrome__link" data-nav="blog" data-magnetic>Blog</a>
+      <a href="#contact" class="chrome__link" data-nav="contact" data-magnetic>Contact</a>
+    </nav>
+    <div class="chrome__right">
+      <a href="#contact" class="chrome__cta" data-magnetic>Say hi →</a>
+      <time class="chrome__time" id="live-time" datetime=""></time>
+      <button class="chrome__menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <nav class="mobile-menu__nav" aria-label="Mobile">
+      <a href="#about" class="mobile-menu__link" data-nav="about">About</a>
+      <a href="#skills" class="mobile-menu__link" data-nav="skills">Skills</a>
+      <a href="#work" class="mobile-menu__link" data-nav="work">Work</a>
+      <a href="#services" class="mobile-menu__link" data-nav="services">Services</a>
+      <a href="#blog" class="mobile-menu__link" data-nav="blog">Blog</a>
+      <a href="#contact" class="mobile-menu__link" data-nav="contact">Contact</a>
+    </nav>
+    <a href="#contact" class="mobile-menu__cta">Say hi →</a>
+    <p class="mobile-menu__meta">MELBOURNE, AU · SOFTWARE DEVELOPER</p>
+  </div>
+
+  <main id="main">
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero" id="hero">
+      <div class="zine-staple zine-staple--tl" aria-hidden="true"></div>
+      <div class="zine-staple zine-staple--tr" aria-hidden="true"></div>
+      <div class="zine-scrap zine-scrap--read" aria-hidden="true">READ ME</div>
+
+      <div class="hero__grid">
+        <header class="hero__top" data-reveal>
+          <div class="hero__stamp">
+            <span>VOL.<br/>II</span>
+          </div>
+          <div class="hero__status">
+            <span class="hero__status-dot" aria-hidden="true"></span>
+            Open to work · Melbourne, AU
+          </div>
+        </header>
+
+        <div class="hero__main">
+          <div class="hero__title-wrap">
+            <h1 class="hero__title" aria-label="Shashank Sigdel, Software Developer">
+              <span class="hero__line hero__line--1" data-reveal>
+                <span class="hero__word">SHA</span><span class="hero__word hero__word--accent">SHANK</span>
+              </span>
+              <span class="hero__line hero__line--2" data-reveal>
+                <span class="hero__word hero__word--outline">SIG</span><span class="hero__word">DEL</span>
+              </span>
+              <span class="hero__line hero__line--3" data-reveal>
+                <em class="hero__role">software developer</em>
+              </span>
+            </h1>
+            <div class="hero__chips" data-reveal>
+              <span>React</span><span>Node.js</span><span>TypeScript</span><span>Firebase</span>
+            </div>
+          </div>
+
+          <aside class="hero__portrait" data-reveal>
+            <div class="hero__portrait-frame">
+              <img
+                src="assets/profile_img-CCSnZ3Jm.svg"
+                alt="Shashank Sigdel portrait"
+                width="320"
+                height="320"
+                loading="eager"
+              />
+              <div class="hero__portrait-badge">DEV</div>
+            </div>
+            <div class="hero__portrait-caption">
+              <span>FIG. 01</span><span>/</span><span>PORTRAIT</span>
+            </div>
+            <p class="hero__proof">2 live products shipped ↗</p>
+          </aside>
+        </div>
+
+        <div class="hero__intro" data-reveal>
+          <p class="hero__intro-text">
+            Recent graduate with a Master's in Information Systems.
+            I take messy problems and <strong>untangle</strong> them into
+            <strong>fast</strong>, <strong>bold</strong> digital experiences.
+          </p>
+          <div class="hero__cta">
+            <a href="#work" class="btn btn--primary" data-magnetic data-cursor="view">
+              <span class="btn__text">See my work</span>
+              <span class="btn__arrow">→</span>
+            </a>
+            <a href="#contact" class="btn btn--ghost" data-magnetic>
+              <span class="btn__text">Get in touch</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero__coords" aria-hidden="true" data-reveal>
+          <span>37.8136° S</span>
+          <span>144.9631° E</span>
+        </div>
+      </div>
+
+      <div class="hero__marquee hero__marquee--bottom" aria-hidden="true">
+        <div class="marquee marquee--reverse">
+          <div class="marquee__inner marquee__inner--chips">
+            <span class="marquee__chip marquee__chip--high">CODE</span>
+            <span class="marquee__chip marquee__chip--low">SHIP</span>
+            <span class="marquee__chip marquee__chip--mid">BUILD</span>
+            <span class="marquee__chip marquee__chip--high">ITERATE</span>
+            <span class="marquee__chip marquee__chip--low">REPEAT</span>
+            <span class="marquee__chip marquee__chip--high">CODE</span>
+            <span class="marquee__chip marquee__chip--low">SHIP</span>
+            <span class="marquee__chip marquee__chip--mid">BUILD</span>
+            <span class="marquee__chip marquee__chip--high">ITERATE</span>
+            <span class="marquee__chip marquee__chip--low">REPEAT</span>
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="hero__scroll" id="hero-scroll" aria-label="Scroll to about section">
+        <svg class="hero__scroll-wire" viewBox="0 0 56 88" width="44" height="70" aria-hidden="true">
+          <path
+            class="hero__scroll-wire-shadow"
+            d="M28 4 C8 18 48 28 28 44 C12 56 44 68 28 84"
+            fill="none"
+            stroke-width="5"
+          />
+          <path
+            class="hero__scroll-wire-path hero__scroll-wire-path--pink"
+            d="M28 4 C8 18 48 28 28 44 C12 56 44 68 28 84"
+            fill="none"
+            stroke-width="3"
+          />
+          <path
+            class="hero__scroll-wire-path hero__scroll-wire-path--blue"
+            d="M28 6 C10 20 46 30 28 46 C14 58 42 70 28 82"
+            fill="none"
+            stroke-width="1.5"
+          />
+          <circle class="hero__scroll-wire-knot" cx="16" cy="24" r="3.5" />
+          <circle class="hero__scroll-wire-knot" cx="40" cy="52" r="3" />
+        </svg>
+        <span class="hero__scroll-label">scroll</span>
+      </a>
+    </section>
+
+    <!-- ═══ ABOUT ═══ -->
+    <section class="about section" id="about">
+      <div class="section__header" data-reveal>
+        <span class="section__index">01</span>
+        <h2 class="section__title">About<br/><em>Me</em></h2>
+        <div class="section__rule"></div>
+      </div>
+
+      <div class="about__board">
+        <aside class="about__visual" data-reveal>
+          <div class="about__collage">
+            <div class="about__img-wrap">
+              <img
+                src="assets/me.jpg"
+                alt="Shashank Sigdel"
+                width="400"
+                height="400"
+                loading="lazy"
+              />
+            </div>
+            <div class="about__tape about__tape--1">PASSIONATE</div>
+            <div class="about__tape about__tape--2">CS + IT</div>
+            <span class="about__fig" aria-hidden="true">FIG. 02</span>
+          </div>
+          <div class="about__creds">
+            <span class="about__cred about__cred--ms">M.S. · Info Systems</span>
+            <span class="about__cred about__cred--bs">B.Sc. · CS &amp; IT</span>
+            <span class="about__cred about__cred--loc">Melbourne, AU</span>
+          </div>
+        </aside>
+
+        <article class="about__panel" data-reveal>
+          <div class="about__panel-top">
+            <span class="about__panel-num">01</span>
+            <span class="about__panel-stamp">WHO</span>
+          </div>
+          <p class="about__lead">
+            Hey there, I'm a software developer who lives at the intersection of
+            <span class="highlight">code</span> and <span class="highlight highlight--alt">creativity</span>.
+            Life's tangled. So are the best problems.
+          </p>
+          <p class="about__body">
+            Recent graduate with a Master's in Information Systems and a solid CS + IT foundation.
+            What drives me is diving into complex problems and building things that actually matter.
+            Not just shipping code, but untangling real user needs into products people use.
+          </p>
+          <ul class="about__highlights">
+            <li>Master's in Information Systems</li>
+            <li>Shipped OzSathi &amp; Dhukuti for the Nepali community</li>
+            <li>Full-stack: React, Node, Firebase, PostgreSQL</li>
+          </ul>
+          <div class="about__tags">
+            <a href="https://ozsathi.com" target="_blank" rel="noopener noreferrer" class="about__tag-link">OzSathi ↗</a>
+            <a href="https://dhukuti.app" target="_blank" rel="noopener noreferrer" class="about__tag-link">Dhukuti ↗</a>
+          </div>
+        </article>
+
+        <div class="about__stats">
+          <div class="about__stat about__stat--exp" data-reveal>
+            <span class="about__stat-stamp">EXP</span>
+            <div class="about__stat-value">
+              <span class="stat__num" data-count="1">0</span><span class="stat__plus">+</span>
+            </div>
+            <span class="stat__label">Years Building</span>
+          </div>
+          <div class="about__stat about__stat--products" data-reveal>
+            <span class="about__stat-stamp">LIVE</span>
+            <div class="about__stat-value">
+              <span class="stat__num" data-count="2">0</span>
+            </div>
+            <span class="stat__label">Products Shipped</span>
+          </div>
+          <div class="about__stat about__stat--passion" data-reveal>
+            <span class="about__stat-stamp">100%</span>
+            <div class="about__stat-value">
+              <span class="stat__num" data-count="100">0</span><span class="stat__plus">%</span>
+            </div>
+            <span class="stat__label">All In</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SKILLS ═══ -->
+    <section class="skills section" id="skills">
+      <div class="section__header section__header--center" data-reveal>
+        <span class="section__index">02</span>
+        <h2 class="section__title">Stack &<br/><em>Tools</em></h2>
+      </div>
+
+      <div class="skills__board" data-reveal>
+        <article class="skills__group skills__group--frontend">
+          <h3 class="skills__group-label">Frontend</h3>
+          <div class="skills__tags">
+            <span class="skill-tag skill-tag--xl" data-tilt>React.js</span>
+            <span class="skill-tag skill-tag--lg" data-tilt>TypeScript</span>
+            <span class="skill-tag" data-tilt>JavaScript</span>
+            <span class="skill-tag skill-tag--accent" data-tilt>HTML &amp; CSS</span>
+            <span class="skill-tag" data-tilt>Responsive Design</span>
+          </div>
+        </article>
+
+        <article class="skills__group skills__group--backend">
+          <h3 class="skills__group-label">Backend</h3>
+          <div class="skills__tags">
+            <span class="skill-tag skill-tag--xl" data-tilt>Node.js</span>
+            <span class="skill-tag skill-tag--lg" data-tilt>Web APIs</span>
+            <span class="skill-tag" data-tilt>REST</span>
+            <span class="skill-tag skill-tag--outline" data-tilt>PostgreSQL</span>
+          </div>
+        </article>
+
+        <article class="skills__group skills__group--toolkit">
+          <h3 class="skills__group-label">Toolkit</h3>
+          <div class="skills__tags">
+            <span class="skill-tag skill-tag--lg" data-tilt>Git</span>
+            <span class="skill-tag" data-tilt>Figma</span>
+            <span class="skill-tag skill-tag--outline" data-tilt>Agile</span>
+            <span class="skill-tag skill-tag--accent" data-tilt>Firebase</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="skills__marquee" aria-hidden="true">
+        <div class="marquee">
+          <div class="marquee__inner marquee__inner--skills">
+            <span>BUILD</span><span>SHIP</span><span>ITERATE</span><span>REPEAT</span>
+            <span>BUILD</span><span>SHIP</span><span>ITERATE</span><span>REPEAT</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ WORK ═══ -->
+    <section class="work section" id="work">
+      <div class="zine-scrap zine-scrap--pull" aria-hidden="true">PULL OUT ↓</div>
+      <div class="section__header" data-reveal>
+        <span class="section__index">03</span>
+        <h2 class="section__title">Selected<br/><em>Work</em></h2>
+        <div class="section__rule"></div>
+      </div>
+
+      <div class="work__board" id="work-track">
+        <article class="work__card work__card--accent" data-reveal data-cursor="view">
+          <div class="work__card-header">
+            <span class="work__card-num">01</span>
+            <span class="work__card-type">Community · Web + iOS</span>
+            <span class="work__card-badge">LIVE</span>
+          </div>
+          <div class="work__card-img">
+            <img src="assets/ozsathi.jpeg" alt="OzSathi, community marketplace for Nepalis in Australia" loading="lazy" />
+          </div>
+          <div class="work__card-body">
+            <h3 class="work__card-title">OzSathi</h3>
+            <p class="work__card-url">ozsathi.com</p>
+            <p class="work__card-desc">
+              Community platform for Nepalis in Australia: marketplace listings, news, events,
+              Ask Sathi Q&amp;A, messaging, and verified profiles.
+            </p>
+            <ul class="work__card-highlights">
+              <li>Marketplace &amp; verified profiles</li>
+              <li>Ask Sathi Q&amp;A + messaging</li>
+              <li>Shipped on web and native iOS</li>
+            </ul>
+            <div class="work__card-tags">
+              <span>React</span><span>TypeScript</span><span>Firebase</span><span>Vercel</span><span>SwiftUI</span>
+            </div>
+            <a href="https://ozsathi.com" class="work__card-cta" target="_blank" rel="noopener noreferrer">
+              Visit OzSathi <span>→</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="work__card work__card--dark" data-reveal data-cursor="view">
+          <div class="work__card-header">
+            <span class="work__card-num">02</span>
+            <span class="work__card-type">Fintech · Web App</span>
+            <span class="work__card-badge">LIVE</span>
+          </div>
+          <div class="work__card-img">
+            <img src="assets/dhukuti.jpg" alt="Dhukuti, digital rotating savings circle" loading="lazy" />
+          </div>
+          <div class="work__card-body">
+            <h3 class="work__card-title">Dhukuti</h3>
+            <p class="work__card-url">dhukuti.app</p>
+            <p class="work__card-desc">
+              Digital rotating savings circles for the Australian Nepali community:
+              circle management, bidding, and Stripe BECS payments.
+            </p>
+            <ul class="work__card-highlights">
+              <li>Rotating savings circle logic</li>
+              <li>Stripe BECS: app never holds money</li>
+              <li>Built for the Nepali community in AU</li>
+            </ul>
+            <div class="work__card-tags">
+              <span>React</span><span>TypeScript</span><span>Firebase</span><span>Stripe</span><span>Tailwind</span>
+            </div>
+            <a href="https://dhukuti.app" class="work__card-cta" target="_blank" rel="noopener noreferrer">
+              Visit Dhukuti <span>→</span>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <p class="work__hint" aria-hidden="true">2 live products · more in the tangle</p>
+    </section>
+
+    <!-- ═══ SERVICES ═══ -->
+    <section class="services section" id="services">
+      <div class="section__header" data-reveal>
+        <span class="section__index">04</span>
+        <h2 class="section__title">What I<br/><em>Do</em></h2>
+        <div class="section__rule"></div>
+      </div>
+
+      <div class="services__board">
+        <article class="services__card services__card--web" data-reveal>
+          <div class="services__card-top">
+            <span class="services__num">01</span>
+            <span class="services__stamp">WEB</span>
+          </div>
+          <h3 class="services__title">Web Development</h3>
+          <p class="services__desc">
+            Building, programming, and maintaining websites, from first sketch to production deploy.
+          </p>
+          <ul class="services__includes">
+            <li>Landing pages &amp; portfolios</li>
+            <li>Performance &amp; SEO basics</li>
+            <li>Deploy &amp; maintain</li>
+          </ul>
+          <div class="services__tags">
+            <span>HTML/CSS</span><span>React</span><span>Vercel</span>
+          </div>
+        </article>
+
+        <article class="services__card services__card--ui" data-reveal>
+          <div class="services__card-top">
+            <span class="services__num">02</span>
+            <span class="services__stamp">UI</span>
+          </div>
+          <h3 class="services__title">UI Engineering</h3>
+          <p class="services__desc">
+            Pixel-perfect, accessible interfaces that feel incredible, even when the layout is intentionally messy.
+          </p>
+          <ul class="services__includes">
+            <li>Design-to-code handoff</li>
+            <li>Responsive &amp; accessible</li>
+            <li>Motion &amp; interaction</li>
+          </ul>
+          <div class="services__tags">
+            <span>Figma</span><span>TypeScript</span><span>a11y</span>
+          </div>
+        </article>
+
+        <article class="services__card services__card--fullstack" data-reveal>
+          <div class="services__card-top">
+            <span class="services__num">03</span>
+            <span class="services__stamp">APP</span>
+          </div>
+          <h3 class="services__title">Full-Stack Apps</h3>
+          <p class="services__desc">
+            End-to-end products with auth, databases, payments. The whole tangled stack, sorted.
+          </p>
+          <ul class="services__includes">
+            <li>React + Node backends</li>
+            <li>Firebase &amp; PostgreSQL</li>
+            <li>Stripe &amp; third-party APIs</li>
+          </ul>
+          <div class="services__tags">
+            <span>Firebase</span><span>Stripe</span><span>Node.js</span>
+          </div>
+        </article>
+
+        <article class="services__card services__card--api" data-reveal>
+          <div class="services__card-top">
+            <span class="services__num">04</span>
+            <span class="services__stamp">API</span>
+          </div>
+          <h3 class="services__title">API Design</h3>
+          <p class="services__desc">
+            RESTful APIs and integrations that are clean, documented, and ready for the next developer.
+          </p>
+          <ul class="services__includes">
+            <li>REST endpoint design</li>
+            <li>Auth &amp; webhooks</li>
+            <li>Clear documentation</li>
+          </ul>
+          <div class="services__tags">
+            <span>REST</span><span>Web APIs</span><span>Postman</span>
+          </div>
+        </article>
+      </div>
+
+      <p class="services__footer" data-reveal>
+        Got a project? <a href="#contact">Get in touch →</a>
+      </p>
+    </section>
+
+    <!-- ═══ BLOG ═══ -->
+    <section class="blog section" id="blog">
+      <div class="section__header" data-reveal>
+        <span class="section__index">05</span>
+        <h2 class="section__title">From the<br/><em>Desk</em></h2>
+        <div class="section__rule"></div>
+      </div>
+
+      <div class="blog__list" id="blog-list">
+        <article class="blog__post" data-reveal data-blog-page="1">
+          <div class="blog__post-meta">
+            <time class="blog__date" datetime="2025-11-12">Nov 12, 2025</time>
+            <span class="blog__tag">Product</span>
+          </div>
+          <h3 class="blog__title">
+            <a href="blog/shipping-ozsathi.html">Shipping OzSathi: web and iOS from one codebase mindset</a>
+          </h3>
+          <p class="blog__excerpt">
+            Lessons from building a community marketplace for Nepalis in Australia:
+            Firebase, Vercel, and when to reach for SwiftUI.
+          </p>
+          <a href="blog/shipping-ozsathi.html" class="blog__read">Read post <span>→</span></a>
+        </article>
+
+        <article class="blog__post blog__post--accent" data-reveal data-blog-page="1">
+          <div class="blog__post-meta">
+            <time class="blog__date" datetime="2025-09-03">Sep 3, 2025</time>
+            <span class="blog__tag">Fintech</span>
+          </div>
+          <h3 class="blog__title">
+            <a href="blog/stripe-becs-dhukuti.html">Stripe BECS without holding user money</a>
+          </h3>
+          <p class="blog__excerpt">
+            How Dhukuti routes rotating savings payments through Stripe so the app
+            never touches funds, and what that means for trust.
+          </p>
+          <a href="blog/stripe-becs-dhukuti.html" class="blog__read">Read post <span>→</span></a>
+        </article>
+
+        <article class="blog__post" data-reveal data-blog-page="1">
+          <div class="blog__post-meta">
+            <time class="blog__date" datetime="2025-06-18">Jun 18, 2025</time>
+            <span class="blog__tag">Dev notes</span>
+          </div>
+          <h3 class="blog__title">
+            <a href="blog/hand-roll-layout.html">Why I still hand-roll layout before reaching for a framework</a>
+          </h3>
+          <p class="blog__excerpt">
+            A short note on CSS grids, zine layouts, and keeping the messy parts intentional.
+          </p>
+          <a href="blog/hand-roll-layout.html" class="blog__read">Read post <span>→</span></a>
+        </article>
+
+        <article class="blog__post blog__post--accent" data-reveal data-blog-page="2">
+          <div class="blog__post-meta">
+            <time class="blog__date" datetime="2025-10-22">Oct 22, 2025</time>
+            <span class="blog__tag">Dev notes</span>
+          </div>
+          <h3 class="blog__title">
+            <a href="blog/firestore-security-rules.html">Firestore security rules I copy into every project</a>
+          </h3>
+          <p class="blog__excerpt">
+            Auth helpers, owner checks, and the three rules I set up before writing features
+            on OzSathi and Dhukuti.
+          </p>
+          <a href="blog/firestore-security-rules.html" class="blog__read">Read post <span>→</span></a>
+        </article>
+      </div>
+
+      <nav class="blog__pagination" id="blog-pagination" aria-label="Blog pages" hidden>
+        <button type="button" class="blog__page-btn blog__page-btn--prev" data-blog-nav="prev" aria-label="Previous page" disabled>← Prev</button>
+        <div class="blog__page-numbers" id="blog-page-numbers"></div>
+        <button type="button" class="blog__page-btn blog__page-btn--next" data-blog-nav="next" aria-label="Next page">Next →</button>
+      </nav>
+
+      <p class="blog__footer" data-reveal>
+        More writing on the way. <a href="#contact">Suggest a topic →</a>
+      </p>
+    </section>
+
+    <!-- ═══ CONTACT ═══ -->
+    <section class="contact section" id="contact">
+      <div class="contact__grid">
+        <div class="contact__left" data-reveal>
+          <span class="section__index">06</span>
+          <h2 class="contact__title">
+            Let's<br/>
+            <em>Talk</em>
+          </h2>
+          <p class="contact__sub">
+            Available for new projects. Drop a line, I reply fast.
+          </p>
+
+          <address class="contact__info">
+            <a href="mailto:shashanksigdel01@gmail.com" class="contact__link" data-magnetic>
+              shashanksigdel01@gmail.com
+            </a>
+            <a href="tel:+61410112507" class="contact__link" data-magnetic>
+              +61 410 112 507
+            </a>
+            <span class="contact__link contact__link--static">Melbourne, Australia</span>
+          </address>
+
+          <div class="contact__socials">
+            <a href="#" class="social-link" data-magnetic aria-label="GitHub">GH</a>
+            <a href="#" class="social-link" data-magnetic aria-label="LinkedIn">LI</a>
+            <a href="#" class="social-link" data-magnetic aria-label="Twitter">TW</a>
+          </div>
+        </div>
+
+        <form class="contact__form" data-reveal id="contact-form">
+          <div class="form__group">
+            <label for="name" class="form__label">Your Name</label>
+            <input type="text" id="name" name="name" class="form__input" placeholder="John Doe" required />
+          </div>
+          <div class="form__group">
+            <label for="email" class="form__label">Your Email</label>
+            <input type="email" id="email" name="email" class="form__input" placeholder="john@email.com" required />
+          </div>
+          <div class="form__group">
+            <label for="message" class="form__label">Message</label>
+            <textarea id="message" name="message" class="form__input form__textarea" placeholder="Tell me about your project..." rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full" data-magnetic>
+            <span class="btn__text">Send Message</span>
+            <span class="btn__arrow">→</span>
+          </button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="footer__main">
+      <div class="footer__brand">
+        <a href="#hero" class="footer__logo" data-magnetic aria-label="Back to top">
+          <span class="footer__logo-main">SS</span>
+          <span class="footer__logo-name">Shashank Sigdel</span>
+        </a>
+        <p class="footer__tagline">Software developer · Melbourne, AU</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="#about" class="footer__link" data-nav="about">About</a>
+        <a href="#skills" class="footer__link" data-nav="skills">Skills</a>
+        <a href="#work" class="footer__link" data-nav="work">Work</a>
+        <a href="#services" class="footer__link" data-nav="services">Services</a>
+        <a href="#blog" class="footer__link" data-nav="blog">Blog</a>
+        <a href="#contact" class="footer__link" data-nav="contact">Contact</a>
+      </nav>
+
+      <div class="footer__aside">
+        <a href="mailto:shashanksigdel01@gmail.com" class="footer__email">shashanksigdel01@gmail.com</a>
+        <div class="footer__socials">
+          <a href="#" class="footer__social" aria-label="GitHub">GH</a>
+          <a href="#" class="footer__social" aria-label="LinkedIn">LI</a>
+          <a href="#" class="footer__social" aria-label="Twitter">TW</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__marquee" aria-hidden="true">
+      <div class="marquee">
+        <div class="marquee__inner footer__marquee-inner">
+          <span>SHASHANK SIGDEL</span>
+          <span>© 2026</span>
+          <span>ALL RIGHTS RESERVED</span>
+          <span>SHASHANK SIGDEL</span>
+          <span>© 2026</span>
+          <span>ALL RIGHTS RESERVED</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2026 Shashank Sigdel. All rights reserved.</p>
+      <a href="#hero" class="footer__top" data-magnetic>↑ Back to top</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  </body>
+</html>

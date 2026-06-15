@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A short note on CSS grids, zine layouts, and keeping the messy parts intentional."
+    />
+    <title>Hand-roll layout before frameworks · Shashank Sigdel</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f0ebe0'/><text x='50' y='68' font-size='46' font-family='Georgia' font-weight='bold' text-anchor='middle' fill='%23111'>SS</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Permanent+Marker&family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body class="zine-riso blog-detail-page">
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <div class="paper-texture" aria-hidden="true"></div>
+    <div class="halftone" aria-hidden="true"></div>
+    <div class="riso-layer riso-layer--pink" id="riso-pink" aria-hidden="true"></div>
+    <div class="riso-layer riso-layer--blue" id="riso-blue" aria-hidden="true"></div>
+
+    <header class="chrome">
+      <div class="chrome__left">
+        <a href="../index.html#hero" class="chrome__logo" aria-label="Shashank Sigdel, home">
+          <span class="chrome__logo-name">Shashank Sigdel</span>
+        </a>
+      </div>
+      <nav class="chrome__nav" aria-label="Primary">
+        <a href="../index.html#about" class="chrome__link" data-nav="about">About</a>
+        <a href="../index.html#skills" class="chrome__link" data-nav="skills">Skills</a>
+        <a href="../index.html#work" class="chrome__link" data-nav="work">Work</a>
+        <a href="../index.html#services" class="chrome__link" data-nav="services">Services</a>
+        <a href="../index.html#blog" class="chrome__link is-active" data-nav="blog">Blog</a>
+        <a href="../index.html#contact" class="chrome__link" data-nav="contact">Contact</a>
+      </nav>
+      <div class="chrome__right">
+        <a href="../index.html#contact" class="chrome__cta">Say hi →</a>
+        <time class="chrome__time" id="live-time" datetime=""></time>
+      </div>
+    </header>
+
+    <main id="main">
+      <article class="blog-article">
+        <div class="blog-article__card">
+          <a href="../index.html#blog" class="blog-article__back">← All posts</a>
+
+          <header class="blog-article__header">
+            <div class="blog-article__meta">
+              <time class="blog-article__date" datetime="2025-06-18">Jun 18, 2025</time>
+              <span class="blog-article__tag">Dev notes</span>
+            </div>
+            <h1 class="blog-article__title">Why I still hand-roll layout before reaching for a framework</h1>
+            <p class="blog-article__dek">
+              This portfolio looks chaotic on purpose. Under the halftone and crooked cards is a plain CSS
+              grid. That is the point.
+            </p>
+          </header>
+
+          <div class="blog-article__body">
+            <p>
+              I like component libraries for apps with forms, tables, and fifty states of buttons. Portfolios
+              are different. They are one long argument about taste. Starting with a framework often means
+              fighting defaults instead of making choices.
+            </p>
+
+            <h2>Grid first, personality second</h2>
+            <p>
+              Each section on this site gets a board: a grid container with cards inside. Alignment does the
+              heavy lifting. Rotation, offset margins, and scrap labels add character on top. If the grid is
+              wrong, no amount of <code>transform: rotate()</code> saves it.
+            </p>
+            <blockquote>
+              Messy is a layer you add. Broken is what happens when the structure was never clear.
+            </blockquote>
+
+            <h2>What hand-rolling buys you</h2>
+            <ul>
+              <li><strong>Speed of mood.</strong> Riso pink and halftone overlays are CSS variables, not theme overrides.</li>
+              <li><strong>Smaller payload.</strong> No runtime for a site that mostly scrolls and clicks.</li>
+              <li><strong>Readable CSS.</strong> <code>.work__board</code> and <code>.blog__post</code> tell you where to look.</li>
+              <li><strong>Accessible base.</strong> Semantic sections and real headings before animation hooks.</li>
+            </ul>
+
+            <h2>When I reach for tools anyway</h2>
+            <p>
+              React for OzSathi and Dhukuti because state and routing multiply. Tailwind when utility classes
+              beat maintaining another stylesheet. But this portfolio is HTML, CSS, and a thin JS file. That
+              matches the zine idea: photocopied, stapled, shipped.
+            </p>
+
+            <h2>A practical workflow</h2>
+            <ol>
+              <li>Sketch the section in boxes on paper (yes, paper).</li>
+              <li>Build the grid at desktop width with no rotation.</li>
+              <li>Add mobile breakpoints while the layout is still boring.</li>
+              <li>Layer scatter: chips, scraps, wires, cursor labels.</li>
+              <li>Stop before every element is crooked. Restraint reads as confidence.</li>
+            </ol>
+
+            <p>
+              If you are rebuilding your own site, try one section without a UI kit. You might ship slower for
+              a day and faster for a month. Or <a href="../index.html#contact">tell me what you are building</a>
+              and we can argue about grids in the comments (email works too).
+            </p>
+          </div>
+
+          <footer class="blog-article__related">
+            <p class="blog-article__related-title">More from the desk</p>
+            <nav class="blog-article__related-list" aria-label="Related posts">
+              <a href="shipping-ozsathi.html" class="blog-article__related-link">Shipping OzSathi: web and iOS from one codebase mindset</a>
+              <a href="stripe-becs-dhukuti.html" class="blog-article__related-link">Stripe BECS without holding user money</a>
+              <a href="firestore-security-rules.html" class="blog-article__related-link">Firestore security rules I copy into every project</a>
+            </nav>
+          </footer>
+        </div>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__main">
+        <div class="footer__brand">
+          <a href="../index.html#hero" class="footer__logo" aria-label="Back to home">
+            <span class="footer__logo-main">SS</span>
+            <span class="footer__logo-name">Shashank Sigdel</span>
+          </a>
+          <p class="footer__tagline">Software developer · Melbourne, AU</p>
+        </div>
+        <nav class="footer__nav" aria-label="Footer">
+          <a href="../index.html#about" class="footer__link">About</a>
+          <a href="../index.html#skills" class="footer__link">Skills</a>
+          <a href="../index.html#work" class="footer__link">Work</a>
+          <a href="../index.html#services" class="footer__link">Services</a>
+          <a href="../index.html#blog" class="footer__link">Blog</a>
+          <a href="../index.html#contact" class="footer__link">Contact</a>
+        </nav>
+        <div class="footer__aside">
+          <a href="mailto:shashanksigdel01@gmail.com" class="footer__email">shashanksigdel01@gmail.com</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 Shashank Sigdel. All rights reserved.</p>
+        <a href="../index.html#blog" class="footer__top">← Back to blog</a>
+      </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

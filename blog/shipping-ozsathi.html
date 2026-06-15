@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Lessons from building OzSathi: a community marketplace for Nepalis in Australia on web and iOS."
+    />
+    <title>Shipping OzSathi · Shashank Sigdel</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f0ebe0'/><text x='50' y='68' font-size='46' font-family='Georgia' font-weight='bold' text-anchor='middle' fill='%23111'>SS</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Permanent+Marker&family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body class="zine-riso blog-detail-page">
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <div class="paper-texture" aria-hidden="true"></div>
+    <div class="halftone" aria-hidden="true"></div>
+    <div class="riso-layer riso-layer--pink" id="riso-pink" aria-hidden="true"></div>
+    <div class="riso-layer riso-layer--blue" id="riso-blue" aria-hidden="true"></div>
+
+    <header class="chrome">
+      <div class="chrome__left">
+        <a href="../index.html#hero" class="chrome__logo" aria-label="Shashank Sigdel, home">
+          <span class="chrome__logo-name">Shashank Sigdel</span>
+        </a>
+      </div>
+      <nav class="chrome__nav" aria-label="Primary">
+        <a href="../index.html#about" class="chrome__link" data-nav="about">About</a>
+        <a href="../index.html#skills" class="chrome__link" data-nav="skills">Skills</a>
+        <a href="../index.html#work" class="chrome__link" data-nav="work">Work</a>
+        <a href="../index.html#services" class="chrome__link" data-nav="services">Services</a>
+        <a href="../index.html#blog" class="chrome__link is-active" data-nav="blog">Blog</a>
+        <a href="../index.html#contact" class="chrome__link" data-nav="contact">Contact</a>
+      </nav>
+      <div class="chrome__right">
+        <a href="../index.html#contact" class="chrome__cta">Say hi →</a>
+        <time class="chrome__time" id="live-time" datetime=""></time>
+      </div>
+    </header>
+
+    <main id="main">
+      <article class="blog-article">
+        <div class="blog-article__card">
+          <a href="../index.html#blog" class="blog-article__back">← All posts</a>
+
+          <header class="blog-article__header">
+            <div class="blog-article__meta">
+              <time class="blog-article__date" datetime="2025-11-12">Nov 12, 2025</time>
+              <span class="blog-article__tag">Product</span>
+            </div>
+            <h1 class="blog-article__title">Shipping OzSathi: web and iOS from one codebase mindset</h1>
+            <p class="blog-article__dek">
+              OzSathi is a community platform for Nepalis in Australia. Here is how I kept web and native
+              aligned without pretending they are the same app.
+            </p>
+          </header>
+
+          <div class="blog-article__body">
+            <p>
+              OzSathi started as a simple idea: give the Nepali community in Australia one place to buy and sell,
+              share news, find events, ask questions, and message each other. The scope grew fast, but the goal
+              stayed the same. Build something people actually open on their phone.
+            </p>
+
+            <h2>What shipped first</h2>
+            <p>
+              The web app went live with React and TypeScript on Vercel, backed by Firebase for auth, data,
+              and messaging. That let me move quickly on listings, profiles, Ask Sathi Q&amp;A, and the news feed
+              without rebuilding infrastructure every week.
+            </p>
+            <ul>
+              <li>Marketplace listings with verified profiles</li>
+              <li>Ask Sathi: community Q&amp;A</li>
+              <li>Events and news for the diaspora</li>
+              <li>In-app messaging between members</li>
+            </ul>
+
+            <h2>When iOS entered the picture</h2>
+            <p>
+              A lot of the community lives on their phones. A responsive site helps, but notifications, camera
+              access, and App Store discoverability matter for a marketplace. I reached for SwiftUI for the
+              native client instead of forcing a single cross-platform UI layer.
+            </p>
+            <blockquote>
+              Same product rules, different surfaces. Firebase stays the source of truth. Web and iOS are siblings,
+              not clones.
+            </blockquote>
+            <p>
+              That meant sharing models and API contracts in my head, not in one giant repo. Auth flows, listing
+              states, and verification rules had to match. Visual polish could diverge where each platform shines.
+            </p>
+
+            <h2>Stack choices that held up</h2>
+            <ul>
+              <li><strong>React + TypeScript</strong> for the web client and fast iteration</li>
+              <li><strong>Firebase</strong> for auth, Firestore, and real-time messaging</li>
+              <li><strong>Vercel</strong> for deploys that do not slow down experiments</li>
+              <li><strong>SwiftUI</strong> when native feel beat shared components</li>
+            </ul>
+
+            <h2>What I would do again</h2>
+            <p>
+              Ship the web MVP early. Write down user states (draft listing, pending verification, banned user)
+              before the iOS build starts. Treat moderation and trust as product features, not afterthoughts.
+            </p>
+            <p>
+              OzSathi is live at <a href="https://ozsathi.com" target="_blank" rel="noopener noreferrer">ozsathi.com</a>.
+              If you are building for a diaspora community, start with the conversations people already have offline.
+              Software should catch up to that, not the other way around.
+            </p>
+          </div>
+
+          <footer class="blog-article__related">
+            <p class="blog-article__related-title">More from the desk</p>
+            <nav class="blog-article__related-list" aria-label="Related posts">
+              <a href="stripe-becs-dhukuti.html" class="blog-article__related-link">Stripe BECS without holding user money</a>
+              <a href="hand-roll-layout.html" class="blog-article__related-link">Why I still hand-roll layout before reaching for a framework</a>
+              <a href="firestore-security-rules.html" class="blog-article__related-link">Firestore security rules I copy into every project</a>
+            </nav>
+          </footer>
+        </div>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__main">
+        <div class="footer__brand">
+          <a href="../index.html#hero" class="footer__logo" aria-label="Back to home">
+            <span class="footer__logo-main">SS</span>
+            <span class="footer__logo-name">Shashank Sigdel</span>
+          </a>
+          <p class="footer__tagline">Software developer · Melbourne, AU</p>
+        </div>
+        <nav class="footer__nav" aria-label="Footer">
+          <a href="../index.html#about" class="footer__link">About</a>
+          <a href="../index.html#skills" class="footer__link">Skills</a>
+          <a href="../index.html#work" class="footer__link">Work</a>
+          <a href="../index.html#services" class="footer__link">Services</a>
+          <a href="../index.html#blog" class="footer__link">Blog</a>
+          <a href="../index.html#contact" class="footer__link">Contact</a>
+        </nav>
+        <div class="footer__aside">
+          <a href="mailto:shashanksigdel01@gmail.com" class="footer__email">shashanksigdel01@gmail.com</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 Shashank Sigdel. All rights reserved.</p>
+        <a href="../index.html#blog" class="footer__top">← Back to blog</a>
+      </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

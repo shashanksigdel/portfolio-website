@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Firestore security rules and auth patterns reused across OzSathi and Dhukuti."
+    />
+    <title>Firestore security rules · Shashank Sigdel</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f0ebe0'/><text x='50' y='68' font-size='46' font-family='Georgia' font-weight='bold' text-anchor='middle' fill='%23111'>SS</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Permanent+Marker&family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body class="zine-riso blog-detail-page">
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <div class="paper-texture" aria-hidden="true"></div>
+    <div class="halftone" aria-hidden="true"></div>
+    <div class="riso-layer riso-layer--pink" id="riso-pink" aria-hidden="true"></div>
+    <div class="riso-layer riso-layer--blue" id="riso-blue" aria-hidden="true"></div>
+
+    <header class="chrome">
+      <div class="chrome__left">
+        <a href="../index.html#hero" class="chrome__logo" aria-label="Shashank Sigdel, home">
+          <span class="chrome__logo-name">Shashank Sigdel</span>
+        </a>
+      </div>
+      <nav class="chrome__nav" aria-label="Primary">
+        <a href="../index.html#about" class="chrome__link" data-nav="about">About</a>
+        <a href="../index.html#skills" class="chrome__link" data-nav="skills">Skills</a>
+        <a href="../index.html#work" class="chrome__link" data-nav="work">Work</a>
+        <a href="../index.html#services" class="chrome__link" data-nav="services">Services</a>
+        <a href="../index.html#blog" class="chrome__link is-active" data-nav="blog">Blog</a>
+        <a href="../index.html#contact" class="chrome__link" data-nav="contact">Contact</a>
+      </nav>
+      <div class="chrome__right">
+        <a href="../index.html#contact" class="chrome__cta">Say hi →</a>
+        <time class="chrome__time" id="live-time" datetime=""></time>
+      </div>
+    </header>
+
+    <main id="main">
+      <article class="blog-article">
+        <div class="blog-article__card blog-article__card--accent">
+          <a href="../index.html?blog-page=2#blog" class="blog-article__back">← All posts</a>
+
+          <header class="blog-article__header">
+            <div class="blog-article__meta">
+              <time class="blog-article__date" datetime="2025-10-22">Oct 22, 2025</time>
+              <span class="blog-article__tag">Dev notes</span>
+            </div>
+            <h1 class="blog-article__title">Firestore security rules I copy into every project</h1>
+            <p class="blog-article__dek">
+              Before listings, circles, or messaging ship, these auth helpers and owner checks
+              go into every Firebase project I touch.
+            </p>
+          </header>
+
+          <div class="blog-article__body">
+            <p>
+              Firestore rules are not boilerplate you paste once. They are the contract between your
+              app and your database. On OzSathi and Dhukuti I learned to write three patterns first,
+              then build features on top.
+            </p>
+
+            <h2>1. Signed-in gate</h2>
+            <p>
+              Most collections should not be world-readable. A simple helper keeps rules readable:
+            </p>
+            <blockquote>
+              <code>function isSignedIn() { return request.auth != null; }</code>
+            </blockquote>
+            <p>
+              Public reads exist only where marketing needs them. Everything user-generated starts
+              behind <code>isSignedIn()</code>.
+            </p>
+
+            <h2>2. Owner match</h2>
+            <p>
+              Users edit their own docs. Admins override. The pattern:
+            </p>
+            <ul>
+              <li><code>resource.data.userId == request.auth.uid</code> on update and delete</li>
+              <li>Same check on create via <code>request.resource.data.userId</code></li>
+              <li>Admin role stored in custom claims or a small <code>admins</code> collection</li>
+            </ul>
+            <p>
+              OzSathi listings use this for drafts. Dhukuti circle members can only update their
+              own profile fields inside a circle.
+            </p>
+
+            <h2>3. Field-level discipline</h2>
+            <p>
+              Clients lie. Rules should allow only the fields you expect to change. If status moves
+              from <code>pending</code> to <code>verified</code>, that transition belongs in a Cloud
+              Function or admin tool, not an open client write.
+            </p>
+
+            <h2>What I test before deploy</h2>
+            <ol>
+              <li>Anonymous user cannot read private collections</li>
+              <li>User A cannot edit user B's document</li>
+              <li>Valid owner can create, read, update within allowed fields</li>
+              <li>Admin paths still work for moderation</li>
+            </ol>
+
+            <p>
+              The Firebase emulator and rules unit tests save hours. I run them before every rules
+              deploy now. Boring? Yes. Cheaper than a data leak on a community app.
+            </p>
+            <p>
+              Building with Firebase too? <a href="../index.html#contact">Get in touch</a> or read how
+              <a href="shipping-ozsathi.html">OzSathi</a> and <a href="stripe-becs-dhukuti.html">Dhukuti</a>
+              use the same stack end to end.
+            </p>
+          </div>
+
+          <footer class="blog-article__related">
+            <p class="blog-article__related-title">More from the desk</p>
+            <nav class="blog-article__related-list" aria-label="Related posts">
+              <a href="shipping-ozsathi.html" class="blog-article__related-link">Shipping OzSathi: web and iOS from one codebase mindset</a>
+              <a href="stripe-becs-dhukuti.html" class="blog-article__related-link">Stripe BECS without holding user money</a>
+              <a href="hand-roll-layout.html" class="blog-article__related-link">Why I still hand-roll layout before reaching for a framework</a>
+            </nav>
+          </footer>
+        </div>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__main">
+        <div class="footer__brand">
+          <a href="../index.html#hero" class="footer__logo" aria-label="Back to home">
+            <span class="footer__logo-main">SS</span>
+            <span class="footer__logo-name">Shashank Sigdel</span>
+          </a>
+          <p class="footer__tagline">Software developer · Melbourne, AU</p>
+        </div>
+        <nav class="footer__nav" aria-label="Footer">
+          <a href="../index.html#about" class="footer__link">About</a>
+          <a href="../index.html#skills" class="footer__link">Skills</a>
+          <a href="../index.html#work" class="footer__link">Work</a>
+          <a href="../index.html#services" class="footer__link">Services</a>
+          <a href="../index.html#blog" class="footer__link">Blog</a>
+          <a href="../index.html#contact" class="footer__link">Contact</a>
+        </nav>
+        <div class="footer__aside">
+          <a href="mailto:shashanksigdel01@gmail.com" class="footer__email">shashanksigdel01@gmail.com</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 Shashank Sigdel. All rights reserved.</p>
+        <a href="../index.html?blog-page=2#blog" class="footer__top">← Back to blog</a>
+      </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

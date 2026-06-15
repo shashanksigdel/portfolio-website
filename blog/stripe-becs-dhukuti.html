@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="How Dhukuti routes rotating savings payments through Stripe BECS so the app never holds user funds."
+    />
+    <title>Stripe BECS without holding user money · Shashank Sigdel</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f0ebe0'/><text x='50' y='68' font-size='46' font-family='Georgia' font-weight='bold' text-anchor='middle' fill='%23111'>SS</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Permanent+Marker&family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body class="zine-riso blog-detail-page">
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <div class="paper-texture" aria-hidden="true"></div>
+    <div class="halftone" aria-hidden="true"></div>
+    <div class="riso-layer riso-layer--pink" id="riso-pink" aria-hidden="true"></div>
+    <div class="riso-layer riso-layer--blue" id="riso-blue" aria-hidden="true"></div>
+
+    <header class="chrome">
+      <div class="chrome__left">
+        <a href="../index.html#hero" class="chrome__logo" aria-label="Shashank Sigdel, home">
+          <span class="chrome__logo-name">Shashank Sigdel</span>
+        </a>
+      </div>
+      <nav class="chrome__nav" aria-label="Primary">
+        <a href="../index.html#about" class="chrome__link" data-nav="about">About</a>
+        <a href="../index.html#skills" class="chrome__link" data-nav="skills">Skills</a>
+        <a href="../index.html#work" class="chrome__link" data-nav="work">Work</a>
+        <a href="../index.html#services" class="chrome__link" data-nav="services">Services</a>
+        <a href="../index.html#blog" class="chrome__link is-active" data-nav="blog">Blog</a>
+        <a href="../index.html#contact" class="chrome__link" data-nav="contact">Contact</a>
+      </nav>
+      <div class="chrome__right">
+        <a href="../index.html#contact" class="chrome__cta">Say hi →</a>
+        <time class="chrome__time" id="live-time" datetime=""></time>
+      </div>
+    </header>
+
+    <main id="main">
+      <article class="blog-article">
+        <div class="blog-article__card blog-article__card--accent">
+          <a href="../index.html#blog" class="blog-article__back">← All posts</a>
+
+          <header class="blog-article__header">
+            <div class="blog-article__meta">
+              <time class="blog-article__date" datetime="2025-09-03">Sep 3, 2025</time>
+              <span class="blog-article__tag">Fintech</span>
+            </div>
+            <h1 class="blog-article__title">Stripe BECS without holding user money</h1>
+            <p class="blog-article__dek">
+              Dhukuti digitizes rotating savings circles for the Australian Nepali community. Trust starts
+              with a simple rule: the app is not a bank.
+            </p>
+          </header>
+
+          <div class="blog-article__body">
+            <p>
+              Dhukuti (a dhukuti is a traditional rotating savings group) helps circles run bids, payouts,
+              and schedules online. Members already understand the social contract. My job was to mirror that
+              trust in software without becoming a money transmitter.
+            </p>
+
+            <h2>The constraint that shaped everything</h2>
+            <p>
+              If Dhukuti held funds in its own account, compliance, licensing, and user anxiety all spike.
+              Stripe BECS Direct Debit lets payments move bank-to-bank under Stripe's rails. The app orchestrates
+              who pays whom and when. It never sits in the middle of the cash.
+            </p>
+            <blockquote>
+              Users do not trust fintech UI. They trust people they know and clear rules. Design for that first.
+            </blockquote>
+
+            <h2>How a circle turn works</h2>
+            <ol>
+              <li>Admin creates a circle with members, contribution amount, and schedule.</li>
+              <li>Each member connects a bank account through Stripe.</li>
+              <li>On payout week, the app calculates who receives the pot.</li>
+              <li>BECS debits run for contributors; Stripe routes funds to the winner.</li>
+              <li>Firestore records every state change for audit and disputes.</li>
+            </ol>
+            <p>
+              Bidding logic lives in the app layer. Payment execution stays in Stripe. That split keeps the
+              domain model honest: Dhukuti knows circle rules; Stripe knows money movement.
+            </p>
+
+            <h2>Why BECS for Australia</h2>
+            <p>
+              The audience banks locally. Card fees eat rotating contributions. BECS fits recurring debits
+              and lower friction for community savings. Stripe's Australian BECS support meant I could ship
+              without building ACH plumbing from scratch.
+            </p>
+
+            <h2>Trust signals in the product</h2>
+            <ul>
+              <li>Transparent turn order and bid history inside each circle</li>
+              <li>Clear status on every debit: pending, succeeded, failed</li>
+              <li>Admin tools to pause a circle when someone drops out</li>
+              <li>Copy that says plainly: Dhukuti does not hold your money</li>
+            </ul>
+
+            <h2>Stack notes</h2>
+            <p>
+              React and TypeScript on the front, Firebase for auth and data, Tailwind for speed, Stripe for
+              payments. The interesting work was not the UI. It was mapping a cultural financial pattern onto
+              APIs that expect merchants and customers, not aunties and uncles in a WhatsApp group.
+            </p>
+            <p>
+              Try it at <a href="https://dhukuti.app" target="_blank" rel="noopener noreferrer">dhukuti.app</a>.
+              If you are wrapping community finance, optimize for explainability over cleverness.
+            </p>
+          </div>
+
+          <footer class="blog-article__related">
+            <p class="blog-article__related-title">More from the desk</p>
+            <nav class="blog-article__related-list" aria-label="Related posts">
+              <a href="shipping-ozsathi.html" class="blog-article__related-link">Shipping OzSathi: web and iOS from one codebase mindset</a>
+              <a href="hand-roll-layout.html" class="blog-article__related-link">Why I still hand-roll layout before reaching for a framework</a>
+              <a href="firestore-security-rules.html" class="blog-article__related-link">Firestore security rules I copy into every project</a>
+            </nav>
+          </footer>
+        </div>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__main">
+        <div class="footer__brand">
+          <a href="../index.html#hero" class="footer__logo" aria-label="Back to home">
+            <span class="footer__logo-main">SS</span>
+            <span class="footer__logo-name">Shashank Sigdel</span>
+          </a>
+          <p class="footer__tagline">Software developer · Melbourne, AU</p>
+        </div>
+        <nav class="footer__nav" aria-label="Footer">
+          <a href="../index.html#about" class="footer__link">About</a>
+          <a href="../index.html#skills" class="footer__link">Skills</a>
+          <a href="../index.html#work" class="footer__link">Work</a>
+          <a href="../index.html#services" class="footer__link">Services</a>
+          <a href="../index.html#blog" class="footer__link">Blog</a>
+          <a href="../index.html#contact" class="footer__link">Contact</a>
+        </nav>
+        <div class="footer__aside">
+          <a href="mailto:shashanksigdel01@gmail.com" class="footer__email">shashanksigdel01@gmail.com</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 Shashank Sigdel. All rights reserved.</p>
+        <a href="../index.html#blog" class="footer__top">← Back to blog</a>
+      </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>
